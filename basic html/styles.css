@@ -1,0 +1,12 @@
+body{
+    background-image: url("image2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+}.demo{
+   color: #b9ceb1;
+}
+
+h2{
+   color: blueviolet;  
+}

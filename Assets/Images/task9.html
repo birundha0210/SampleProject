@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo of animation  </title>
+</head>
+<style>
+    .button{
+        padding: 20px;
+        background-color: aqua;
+        border-radius: 40px;
+    }
+    #background{
+        position: relative;
+        background-color: rgb(165, 127, 255);
+        height:500px;
+        width: 500px;
+    }
+    #image {
+        position: absolute;
+        margin-left: 400px;
+    }
+</style>
+<body>
+    <button onclick="go()" class="button"> CLICK ME</button><br><br>
+    <div id="background">
+        <div id="image">
+            <img src="image2.jpg" alt="image" height="100px" width="100px">
+        </div>
+    </div>
+    <script>
+        function go() {
+            let id = null
+            const elem =document.getElementById("image");
+            let pos = 0
+            clearInterval(id)
+            id = setInterval( shape , 1 )
+        function shape() {
+            if (pos == 200 ){
+                clearInterval(id)
+            }
+            else{
+                pos++;
+                elem.style.top = pos + "px"; 
+                elem.style.right = pos + "px"; 
+            }
+        }
+     }
+    </script>
+</body>
+</html>

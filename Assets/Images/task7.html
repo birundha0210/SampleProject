@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo of calculator </title>
+</head>
+<style>
+    .num {
+        display: inline-grid;
+        row-gap: 5px;
+        column-gap: 5px;
+        grid-template-columns: 70px 70px 70px 70px ;
+        padding: 10px;
+        background-color: burlywood;
+        border: 1px solid black;
+    }
+    .num >div {
+     background-color: #f1f1f1;
+     border: 1px solid black;
+     padding: 10px;
+     font-size: 30px;
+     text-align: center;
+     border-radius: 15px;
+    }
+    .num1{
+        display: inline-grid;
+        border: 1px solid  black;
+        height: 500px;
+
+    }
+    .num2 {
+        height: 150px;
+    }
+    .head{
+        border: 1px solid black ;
+    }
+</style>
+<body>
+
+    <section class="num1" >
+        <div class="num2">
+            <h1>Standard</h1><br><br>
+            <h1 style="margin-left:250px ;">0</h1>
+        </div>
+            <div>
+                <input type="text" id="display" class="display" >
+            </div>
+            <div class="num">
+                <div  id="button clear" onclick="clearDisplay()">AC</div>
+                <div id="button operator" onclick="appendOperator('')"> CE</div>
+                <div id="button operator" onclick="clearDisplay(x)"> x</div>
+                <div id="button operator" onclick="appendOperation('/')">/</div>
+    
+                <div id="button number" onclick="appendNumber('7')">7</div>
+                <div id="button number" onclick="appendNumber('8')">8</div>
+                <div id="button number" onclick="appendNumber('9')">9</div>
+                <div id="button operator" onclick="appendOperator('*')">*</div>
+                <div id="button number" onclick="appendNumber('4')">4</div>  
+                <div id="button number" onclick="appendNumber('5')">5</div>
+                <div id="button number" onclick="appendNumber('6')">6</div>
+                <div id="button operator" onclick="appendOperator('-')">-</div>
+                <div id="button number" onclick="appendNumber('1')">1</div>  
+                <div id="button number" onclick="appendNumber('2')">2</div>
+                <div id="button number" onclick="appendNumber('3')">3</div>
+                <div id="button operator" onclick="appendOperator('+')">+</div>
+                <div id= "button operator" onclick="appendOperator('/')">+/-</div>  
+                <div id="button number" onclick="appendNumber('0')">0</div>
+                <div>.</div>
+                <div style="background-color:lawngreen ;color :red ;">=</div>
+            </div>
+    </section>
+    <script>
+        let currentInput='';   
+        let currentOperation='';
+        let previousInput='';
+              
+
+        function appendNumber(number) {
+            currentInput+= number;
+            document.getElementById('display'). value=`${previousInput}${currentOperation}${currentInput} `;
+        }
+
+       function appendOperation(operation) {
+        if(currentInput ==='') return;
+        if (previousInput !=='') {
+            calculate();
+        }
+        currentOperation = operation;
+        previousInput = currrentInput;
+        currentInput = '';
+        document.getElementById('display').value = `${previousInput} ${currentOperation}`;
+    } 
+    
+        
+</script>
+</body>
+</html>
